@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+*.egg
+
+# VS Code
+.vscode/
+# Uncomment if you want to share VS Code settings with the team:
+# !.vscode/settings.json
+# !.vscode/extensions.json
