@@ -1,1 +1,1 @@
-[![CI](https://github.com/yourusername/repo/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/repo/actions/workflows/ci.yml)
+[![CI](https://github.com/scotnewbury/python-foundations/actions/workflows/ci.yml/badge.svg)](https://github.com/scotnewbury/python-foundations/actions/workflows/ci.yml)
