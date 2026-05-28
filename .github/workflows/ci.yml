@@ -38,5 +38,5 @@ jobs:
       - name: Type check with mypy
         run: mypy src/
 
-      - name: Run tests
-        run: pytest -v
+      - name: Run tests with coverage
+        run: pytest --cov=src --cov-fail-under=85

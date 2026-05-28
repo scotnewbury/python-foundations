@@ -9,6 +9,8 @@ __pycache__/
 dist/
 *.egg-info/
 *.egg
+.coverage
+htmlcov/
 
 # VS Code
 .vscode/
