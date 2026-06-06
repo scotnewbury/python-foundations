@@ -1,8 +1,6 @@
 def validate_username(username: str) -> bool:
     if not (3 <= len(username) <= 20):
         return False
-    elif username == "":
-        return False
     elif username[0].isdigit():
         return False
     else:
