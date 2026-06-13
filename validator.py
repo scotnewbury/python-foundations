@@ -21,3 +21,28 @@ def validate_username(username: str) -> bool:
         return False
 
     return True
+
+
+def validate_password(password: str) -> bool:
+    """Check whether a password meets the format requirements.
+
+    A valid password is 8 characters or more, contains at least one
+    digit, and at least one uppercase letter.
+
+    Args:
+        password: The password string to validate.
+
+    Returns:
+        True if the password is valid, False otherwise.
+    """
+
+    if len(password) < 8:
+        return False
+
+    if not any(char.isdigit() for char in password):
+        return False
+
+    if not any(char.isupper() for char in password):
+        return False
+
+    return True
