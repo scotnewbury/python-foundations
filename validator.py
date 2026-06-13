@@ -21,14 +21,3 @@ def validate_username(username: str) -> bool:
         return False
 
     return True
-
-
-if __name__ == "__main__":
-    print(f"Username correct length: {validate_username('scot')}")
-    print(f"Username too long: {validate_username('A12345678901234567890')}")
-    print(f"Username empty: {validate_username('')}")
-    print(f"Username starts with a number: {validate_username('2fortea')}")
-    print(
-        f"Username, abc$123, has an invalid character: {validate_username('abc$123')}"
-    )
-    print(f"Username, def_456, is legal: {validate_username('def_456')}")
