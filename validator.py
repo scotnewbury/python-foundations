@@ -46,3 +46,25 @@ def validate_password(password: str) -> bool:
         return False
 
     return True
+
+
+def validate_age(age_input: str) -> int | None:
+    """Check whether the age meets range requirement.
+
+    A valid age is between 0 and 150 inclusive
+
+    Args:
+        age_input: The age string to validate.
+
+    Returns:
+        The age, as an integer, if valid, otherwise None.
+    """
+    if not age_input.isdecimal():
+        return None
+
+    age = int(age_input)
+
+    if not (0 <= age <= 150):
+        return None
+
+    return age
