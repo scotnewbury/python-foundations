@@ -1,4 +1,5 @@
 from validator import (
+    validate_age,
     validate_password,
     validate_username,
 )
@@ -39,3 +40,23 @@ class TestValidatePassword:
 
     def test_password_for_no_uppercase(self):
         assert validate_password("123abcdefg") is False
+
+
+class TestValidateAge:
+    def test_age_returns_age(self):
+        assert validate_age("100") == 100
+
+    def test_age_boundary_low_value_returns_age(self):
+        assert validate_age("0") == 0
+
+    def test_age_boundary_high_value_returns_age(self):
+        assert validate_age("150") == 150
+
+    def test_age_is_empty(self):
+        assert validate_age("") is None
+
+    def test_age_is_less_than_zero(self):
+        assert validate_age("-1") is None
+
+    def test_age_is_above_150(self):
+        assert validate_age("175") is None
