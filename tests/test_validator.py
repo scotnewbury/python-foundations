@@ -7,7 +7,7 @@ from validator import (
 
 
 class TestValidateUsername:
-    def test_valid_username_returns_true(self):
+    def test_validate_username_returns_true(self):
         assert validate_username("alice_99") is True
 
     def test_username_boundary_low_value_returns_true(self):
@@ -35,6 +35,9 @@ class TestValidatePassword:
 
     def test_password_is_too_short(self):
         assert validate_password("Abc123") is False
+
+    def test_password_length_is_minimum_length_returns_true(self):
+        assert validate_password("Ab123456") is True
 
     def test_password_for_no_digits(self):
         assert validate_password("abcdeFGHIJ") is False
