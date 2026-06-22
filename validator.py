@@ -68,3 +68,23 @@ def validate_age(age_input: str) -> int | None:
         return None
 
     return age
+
+
+def add_to_history(entry: str, history: list[str] | None = None) -> list[str]:
+    """Add an entry to the end of the history list.
+
+    A valid entry is any string
+
+    Args:
+        entry: The entry to append to the history
+        history: The list containing all past entries.
+
+    Returns:
+        The updated history list.
+    """
+    if history is None:
+        history = []
+
+    history.append(entry)
+
+    return history
