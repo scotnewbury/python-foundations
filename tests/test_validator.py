@@ -1,4 +1,5 @@
 from validator import (
+    add_to_history,
     validate_age,
     validate_password,
     validate_username,
@@ -60,3 +61,11 @@ class TestValidateAge:
 
     def test_age_is_above_150(self):
         assert validate_age("175") is None
+
+
+class TestAddToHistory:
+    def test_no_history_returns_single_entry(self):
+        assert add_to_history("test1") == ["test1"]
+
+    def test_existing_history_returns_appended_list(self):
+        assert add_to_history("test2", ["test1"]) == ["test1", "test2"]
