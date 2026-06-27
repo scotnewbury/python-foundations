@@ -88,3 +88,24 @@ def add_to_history(entry: str, history: list[str] | None = None) -> list[str]:
     history.append(entry)
 
     return history
+
+
+def normalize_username(username: str) -> str | None:
+    """Update username to meet format requirements.
+
+    Remove whitespace from the username and convert to lowercase
+
+    Args:
+        username: The username to update to match requirements.
+
+    Returns:
+        The normalize username if valid. None otherwise.
+    """
+
+    username = "".join(username.split())
+    username = username.lower()
+
+    if validate_username(username):
+        return username
+
+    return None
