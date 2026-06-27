@@ -1,5 +1,6 @@
 from validator import (
     add_to_history,
+    normalize_username,
     validate_age,
     validate_password,
     validate_username,
@@ -72,3 +73,20 @@ class TestAddToHistory:
 
     def test_existing_history_returns_appended_list(self):
         assert add_to_history("test2", ["test1"]) == ["test1", "test2"]
+
+
+class TestNormalizeUsername:
+    def test_username_is_all_lowercase_and_no_spaces_returns_normalized_username(self):
+        assert normalize_username("Scot Newbury") == "scotnewbury"
+
+    def test_username_has_leading_space_returns_normalized_username(self):
+        assert normalize_username(" scotnewbury") == "scotnewbury"
+
+    def test_username_has_trailing_space_returns_normalized_username(self):
+        assert normalize_username("scotnewbury ") == "scotnewbury"
+
+    def test_username_has_special_characters_returns_none(self):
+        assert normalize_username("scot!@#newbury") is None
+
+    def test_username_has_numbers_returns_normalized_username(self):
+        assert normalize_username("scot123newbury") == "scot123newbury"
