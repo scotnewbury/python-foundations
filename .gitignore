@@ -11,6 +11,7 @@ dist/
 *.egg
 .coverage
 htmlcov/
+test.txt
 
 # VS Code
 .vscode/
