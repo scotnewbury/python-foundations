@@ -50,10 +50,14 @@ def count_words(text: str) -> dict[str, int]:
     return word_dict
 
 
-# print(count_words("The cat didn't sat on the mat, mat"))
+def top_n_words(freq: dict[str, int], n: int) -> list[tuple[str, int]]:
+    most_frequent_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)[:n]
+    return most_frequent_words
 
-print("Second test: ", count_words(".,!?;:'\""))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        print(read_text(sys.argv[1]))
+        string_of_words = read_text(sys.argv[1])
+        dictionary_of_words = count_words(string_of_words)
+        print("The dictionary of words: \n", dictionary_of_words)
+        print("\n\n", top_n_words(dictionary_of_words, 5))
