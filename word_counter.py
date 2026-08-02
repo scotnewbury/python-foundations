@@ -51,6 +51,17 @@ def count_words(text: str) -> dict[str, int]:
 
 
 def top_n_words(freq: dict[str, int], n: int) -> list[tuple[str, int]]:
+    """Accept a dictionary and return the top n key:value pairings
+
+    A sorted list from the dictionary is created and the top n values are returned.
+
+    Args:
+        freq: The dictionary to be read
+        n: The number of values to be returned
+
+    Returns:
+        A list of the top n key:value pairings.
+    """
     most_frequent_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)[:n]
     return most_frequent_words
 
