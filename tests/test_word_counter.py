@@ -1,6 +1,7 @@
 from word_counter import (
     count_words,
     top_n_words,
+    unique_words,
 )
 
 
@@ -40,3 +41,10 @@ class TestTopNWords:
         assert len(result) == 2
         assert result[0][0] == "the"  # most common first
         assert result[1][0] == "cat"
+
+
+class TestUniqueWords:
+    def test_unique_words_basic(self):
+        freq = {"the": 5, "cat": 3, "dog": 1}
+        result = unique_words(freq)
+        assert result == {"the", "cat", "dog"}
