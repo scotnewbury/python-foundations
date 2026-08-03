@@ -62,8 +62,17 @@ def top_n_words(freq: dict[str, int], n: int) -> list[tuple[str, int]]:
     Returns:
         A list of the top n key:value pairings.
     """
-    most_frequent_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)[:n]
+    most_frequent_words = sorted(freq.items(), key=lambda item: item[1], reverse=True)[
+        :n
+    ]
     return most_frequent_words
+
+
+def unique_words(freq: dict[str, int]) -> set[str]:
+    """Accept a dictionary and return a set of all unique words"""
+
+    unique_words_set = set(freq.keys())
+    return unique_words_set
 
 
 if __name__ == "__main__":
@@ -72,3 +81,4 @@ if __name__ == "__main__":
         dictionary_of_words = count_words(string_of_words)
         print("The dictionary of words: \n", dictionary_of_words)
         print("\n\n", top_n_words(dictionary_of_words, 5))
+        print("\n\n", unique_words(dictionary_of_words))
