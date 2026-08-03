@@ -70,9 +70,7 @@ def top_n_words(freq: dict[str, int], n: int) -> list[tuple[str, int]]:
 
 def unique_words(freq: dict[str, int]) -> set[str]:
     """Accept a dictionary and return a set of all unique words"""
-
-    unique_words_set = set(freq.keys())
-    return unique_words_set
+    return set(freq.keys())
 
 
 if __name__ == "__main__":
