@@ -73,10 +73,30 @@ def unique_words(freq: dict[str, int]) -> set[str]:
     return set(freq.keys())
 
 
+def words_by_first_letter(freq: dict[str, int]) -> dict[str, list[str]]:
+    """Group words by their first letter.
+
+    Builds a new dictionary where each key is a starting letter and each
+    value is a list of words from freq that begin with that letter.
+
+    Args:
+        freq: The dictionary to be read.
+
+    Returns:
+        A dictionary mapping each starting letter to a list of words
+        that begin with it.
+    """
+    words_grouped_by_first_letter: dict[str, list[str]] = {}
+    for word in freq:
+        words_grouped_by_first_letter.setdefault(word[0], []).append(word)
+    return words_grouped_by_first_letter
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         string_of_words = read_text(sys.argv[1])
         dictionary_of_words = count_words(string_of_words)
-        print("The dictionary of words: \n", dictionary_of_words)
-        print("\n\n", top_n_words(dictionary_of_words, 5))
-        print("\n\n", unique_words(dictionary_of_words))
+        # print("The dictionary of words: \n", dictionary_of_words)
+        # print("\n\n", top_n_words(dictionary_of_words, 5))
+        # print("\n\n", unique_words(dictionary_of_words))
+        print(words_by_first_letter(dictionary_of_words))
