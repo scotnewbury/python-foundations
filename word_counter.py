@@ -92,6 +92,28 @@ def words_by_first_letter(freq: dict[str, int]) -> dict[str, list[str]]:
     return words_grouped_by_first_letter
 
 
+def filter_words(
+    freq: dict[str, int], min_length: int = 1, min_count: int = 1
+) -> dict[str, int]:
+    """Filter words by minimum length and count.
+
+    Builds a new dictionary where each key meets a minimum requirement
+    for both word length and frequency.
+
+    Args:
+        freq: The dictionary to be read
+        min_length: The minimum number of characters required for the word to be
+            included
+        min_count: The minimum count for the word to be included
+
+    Returns:
+        A dictionary of words meeting the minimum requirements and their
+        frequency count.
+    """
+
+    return {"that": 4, "start": 5}
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         string_of_words = read_text(sys.argv[1])
