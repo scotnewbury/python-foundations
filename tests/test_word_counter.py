@@ -2,6 +2,7 @@ from word_counter import (
     count_words,
     top_n_words,
     unique_words,
+    words_by_first_letter,
 )
 
 
@@ -48,3 +49,15 @@ class TestUniqueWords:
         freq = {"the": 5, "cat": 3, "dog": 1}
         result = unique_words(freq)
         assert result == {"the", "cat", "dog"}
+
+
+class TestWordsByFirstLetter:
+    def test_words_by_first_letter_group_creation(self):
+        freq = {"the": 5, "cat": 3, "dog": 1}
+        result = words_by_first_letter(freq)
+        assert result == {"t": ["the"], "c": ["cat"], "d": ["dog"]}
+
+    def test_words_by_first_letter_add_to_existing_group(self):
+        freq = {"the": 5, "cat": 3, "dog": 1, "that": 3, "this": 5}
+        result = words_by_first_letter(freq)
+        assert result == {"t": ["the", "that", "this"], "c": ["cat"], "d": ["dog"]}
