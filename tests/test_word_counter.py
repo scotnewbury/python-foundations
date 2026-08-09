@@ -1,5 +1,6 @@
 from word_counter import (
     count_words,
+    filter_words,
     top_n_words,
     unique_words,
     words_by_first_letter,
@@ -21,9 +22,9 @@ class TestCountWords:
     def test_count_words_is_lowercase(self):
         text = "This is The Way"
         result = count_words(text)
-        assert all(
-            key == key.lower() for key in result.keys()
-        ), "Not all keys are lowercase"
+        assert all(key == key.lower() for key in result.keys()), (
+            "Not all keys are lowercase"
+        )
 
     def test_count_words_basic(self):
         text = "the cat sat on the mat"
@@ -61,3 +62,10 @@ class TestWordsByFirstLetter:
         freq = {"the": 5, "cat": 3, "dog": 1, "that": 3, "this": 5}
         result = words_by_first_letter(freq)
         assert result == {"t": ["the", "that", "this"], "c": ["cat"], "d": ["dog"]}
+
+
+class TestFilterWords:
+    def test_filter_words_correct_count(self):
+        freq = {"the": 3, "that": 4, "start": 5}
+        result = filter_words(freq, min_count=4)
+        assert result == {"that": 4, "start": 5}
