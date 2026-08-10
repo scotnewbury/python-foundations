@@ -107,18 +107,27 @@ def filter_words(
         min_count: The minimum count for the word to be included
 
     Returns:
-        A dictionary of words meeting the minimum requirements and their
-        frequency count.
+        A dictionary of words meeting the minimum length requirements
+        and their frequency count.
     """
+    if not freq:
+        return {}
 
-    return {"that": 4, "start": 5}
+    # TODO: remove print statements and add correct logic for minimum count
+    print(f"\nThe value of min_length is: {min_length}")
+    print(f"\nThe value of min_count is: {min_count}")
+    return freq
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         string_of_words = read_text(sys.argv[1])
         dictionary_of_words = count_words(string_of_words)
+        # TODO: Remove all commented code
         # print("The dictionary of words: \n", dictionary_of_words)
         # print("\n\n", top_n_words(dictionary_of_words, 5))
         # print("\n\n", unique_words(dictionary_of_words))
-        print(words_by_first_letter(dictionary_of_words))
+        # print(words_by_first_letter(dictionary_of_words))
+        filter_words(dictionary_of_words, min_length=2, min_count=4)
+    else:
+        print("\n\nYou forgot the filename\n\n")
