@@ -65,7 +65,30 @@ class TestWordsByFirstLetter:
 
 
 class TestFilterWords:
-    def test_filter_words_correct_count(self):
+    def test_filter_words_minimum_count(self):
         freq = {"the": 3, "that": 4, "start": 5}
         result = filter_words(freq, min_count=4)
         assert result == {"that": 4, "start": 5}
+
+    def test_filter_words_minimum_length(self):
+        freq = {"the": 3, "that": 4, "start": 5}
+        result = filter_words(freq, min_length=4)
+        assert result == {"that": 4, "start": 5}
+
+    def test_filter_words_minimum_count_and_length(self):
+        freq = {"the": 3, "that": 4, "this": 5, "start": 5}
+        result = filter_words(freq, min_length=4, min_count=5)
+        assert result == {"this": 5, "start": 5}
+
+    def test_filter_words_no_length_matches(self):
+        freq = {"the": 3, "that": 4, "this": 5, "start": 5}
+        result = filter_words(freq, min_length=6, min_count=5)
+        assert result == {}
+
+    def test_filter_words_no_count_matches(self):
+        freq = {"the": 3, "that": 4, "this": 5, "start": 5}
+        result = filter_words(freq, min_length=4, min_count=6)
+        assert result == {}
+
+    def test_filter_words_empty(self):
+        assert filter_words({}) == {}
